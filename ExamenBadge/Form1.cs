@@ -16,5 +16,30 @@ namespace ExamenBadge
         {
             InitializeComponent();
         }
+
+        private void groupeBindingNavigatorSaveItem_Click(object sender, EventArgs e)
+        {
+            this.Validate();
+            this.groupeBindingSource.EndEdit();
+            this.tableAdapterManager.UpdateAll(this.badgeDataSet);
+
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            // TODO: cette ligne de code charge les données dans la table 'badgeDataSet.Stagiaire'. Vous pouvez la déplacer ou la supprimer selon vos besoins.
+            this.stagiaireTableAdapter.Fill(this.badgeDataSet.Stagiaire);
+            // TODO: cette ligne de code charge les données dans la table 'badgeDataSet.Groupe'. Vous pouvez la déplacer ou la supprimer selon vos besoins.
+            this.groupeTableAdapter.Fill(this.badgeDataSet.Groupe);
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            CrystalBadge1 cb = new CrystalBadge1();
+            cb.SetDataSource(badgeDataSet);
+            string filter = "{Stagiaire.IdStagiaire} = " + (groupeComboBox.SelectedIndex + 1);
+            Imprimer i = new Imprimer(cb, filter);
+        }
     }
 }
