@@ -38,8 +38,10 @@ namespace ExamenBadge
         {
             CrystalBadge1 cb = new CrystalBadge1();
             cb.SetDataSource(badgeDataSet);
-            string filter = "{Stagiaire.IdStagiaire} = " + (groupeComboBox.SelectedIndex + 1);
+            cb.SetParameterValue("ch", Application.StartupPath);
+            string filter = "{Groupe.IdGroupe} = "+(groupeComboBox.SelectedIndex+1);
             Imprimer i = new Imprimer(cb, filter);
+            i.ShowDialog();
         }
     }
 }
