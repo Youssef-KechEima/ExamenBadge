@@ -28,9 +28,9 @@ namespace ExamenBadge
         private void Form1_Load(object sender, EventArgs e)
         {
             // TODO: cette ligne de code charge les données dans la table 'badgeDataSet.Stagiaire'. Vous pouvez la déplacer ou la supprimer selon vos besoins.
-            this.stagiaireTableAdapter.Fill(this.badgeDataSet.Stagiaire);
+      //      this.stagiaireTableAdapter.Fill(this.badgeDataSet.Stagiaire);
             // TODO: cette ligne de code charge les données dans la table 'badgeDataSet.Groupe'. Vous pouvez la déplacer ou la supprimer selon vos besoins.
-            this.groupeTableAdapter.Fill(this.badgeDataSet.Groupe);
+       //     this.groupeTableAdapter.Fill(this.badgeDataSet.Groupe);
 
         }
 
@@ -52,6 +52,11 @@ namespace ExamenBadge
             string filter = "{Groupe.IdGroupe} = " + (groupeComboBox.SelectedIndex + 1);
             Imprimer i = new Imprimer(cc, filter);
             i.ShowDialog();
+        }
+
+        private void btnList_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }

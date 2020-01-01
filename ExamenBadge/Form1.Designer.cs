@@ -46,9 +46,10 @@
             // 
             // btnBadge
             // 
-            this.btnBadge.Location = new System.Drawing.Point(112, 166);
+            this.btnBadge.Location = new System.Drawing.Point(84, 135);
+            this.btnBadge.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnBadge.Name = "btnBadge";
-            this.btnBadge.Size = new System.Drawing.Size(266, 44);
+            this.btnBadge.Size = new System.Drawing.Size(200, 36);
             this.btnBadge.TabIndex = 0;
             this.btnBadge.Text = "ImprimerBadge";
             this.btnBadge.UseVisualStyleBackColor = true;
@@ -56,9 +57,10 @@
             // 
             // btnInvocation
             // 
-            this.btnInvocation.Location = new System.Drawing.Point(112, 216);
+            this.btnInvocation.Location = new System.Drawing.Point(84, 176);
+            this.btnInvocation.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnInvocation.Name = "btnInvocation";
-            this.btnInvocation.Size = new System.Drawing.Size(266, 44);
+            this.btnInvocation.Size = new System.Drawing.Size(200, 36);
             this.btnInvocation.TabIndex = 0;
             this.btnInvocation.Text = "ImprimerInvocation";
             this.btnInvocation.UseVisualStyleBackColor = true;
@@ -66,12 +68,14 @@
             // 
             // btnList
             // 
-            this.btnList.Location = new System.Drawing.Point(112, 266);
+            this.btnList.Location = new System.Drawing.Point(84, 216);
+            this.btnList.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnList.Name = "btnList";
-            this.btnList.Size = new System.Drawing.Size(266, 44);
+            this.btnList.Size = new System.Drawing.Size(200, 36);
             this.btnList.TabIndex = 0;
             this.btnList.Text = "ImprimerListe";
             this.btnList.UseVisualStyleBackColor = true;
+            this.btnList.Click += new System.EventHandler(this.btnList_Click);
             // 
             // badgeDataSet
             // 
@@ -99,9 +103,10 @@
             this.groupeComboBox.DataSource = this.groupeBindingSource;
             this.groupeComboBox.DisplayMember = "NomGroupe";
             this.groupeComboBox.FormattingEnabled = true;
-            this.groupeComboBox.Location = new System.Drawing.Point(12, 85);
+            this.groupeComboBox.Location = new System.Drawing.Point(9, 69);
+            this.groupeComboBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.groupeComboBox.Name = "groupeComboBox";
-            this.groupeComboBox.Size = new System.Drawing.Size(439, 24);
+            this.groupeComboBox.Size = new System.Drawing.Size(330, 21);
             this.groupeComboBox.TabIndex = 4;
             this.groupeComboBox.ValueMember = "IdGroupe";
             // 
@@ -116,13 +121,14 @@
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(525, 393);
+            this.ClientSize = new System.Drawing.Size(394, 319);
             this.Controls.Add(this.groupeComboBox);
             this.Controls.Add(this.btnList);
             this.Controls.Add(this.btnInvocation);
             this.Controls.Add(this.btnBadge);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
