@@ -608,6 +608,10 @@ namespace ExamenBadge {
             
             private global::System.Data.DataColumn columnIdGroupe;
             
+            private global::System.Data.DataColumn columndateNaissance;
+            
+            private global::System.Data.DataColumn columnCin;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public StagiaireDataTable() {
@@ -683,6 +687,22 @@ namespace ExamenBadge {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn dateNaissanceColumn {
+                get {
+                    return this.columndateNaissance;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn CinColumn {
+                get {
+                    return this.columnCin;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -718,14 +738,16 @@ namespace ExamenBadge {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public StagiaireRow AddStagiaireRow(string NomStagiaire, string PrenomStagiaire, string Photo, GroupeRow parentGroupeRowByfk_Groupe) {
+            public StagiaireRow AddStagiaireRow(string NomStagiaire, string PrenomStagiaire, string Photo, GroupeRow parentGroupeRowByfk_Groupe, System.DateTime dateNaissance, string Cin) {
                 StagiaireRow rowStagiaireRow = ((StagiaireRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         NomStagiaire,
                         PrenomStagiaire,
                         Photo,
-                        null};
+                        null,
+                        dateNaissance,
+                        Cin};
                 if ((parentGroupeRowByfk_Groupe != null)) {
                     columnValuesArray[4] = parentGroupeRowByfk_Groupe[0];
                 }
@@ -763,6 +785,8 @@ namespace ExamenBadge {
                 this.columnPrenomStagiaire = base.Columns["PrenomStagiaire"];
                 this.columnPhoto = base.Columns["Photo"];
                 this.columnIdGroupe = base.Columns["IdGroupe"];
+                this.columndateNaissance = base.Columns["dateNaissance"];
+                this.columnCin = base.Columns["Cin"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -778,6 +802,10 @@ namespace ExamenBadge {
                 base.Columns.Add(this.columnPhoto);
                 this.columnIdGroupe = new global::System.Data.DataColumn("IdGroupe", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnIdGroupe);
+                this.columndateNaissance = new global::System.Data.DataColumn("dateNaissance", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columndateNaissance);
+                this.columnCin = new global::System.Data.DataColumn("Cin", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCin);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnIdStagiaire}, true));
                 this.columnIdStagiaire.AutoIncrement = true;
@@ -789,6 +817,7 @@ namespace ExamenBadge {
                 this.columnNomStagiaire.MaxLength = 50;
                 this.columnPrenomStagiaire.MaxLength = 50;
                 this.columnPhoto.MaxLength = 10;
+                this.columnCin.MaxLength = 10;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1072,6 +1101,38 @@ namespace ExamenBadge {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public System.DateTime dateNaissance {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tableStagiaire.dateNaissanceColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("La valeur pour la colonne \'dateNaissance\' dans la table \'Stagiaire\' est DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableStagiaire.dateNaissanceColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Cin {
+                get {
+                    try {
+                        return ((string)(this[this.tableStagiaire.CinColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("La valeur pour la colonne \'Cin\' dans la table \'Stagiaire\' est DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableStagiaire.CinColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public GroupeRow GroupeRow {
                 get {
                     return ((GroupeRow)(this.GetParentRow(this.Table.ParentRelations["fk_Groupe"])));
@@ -1127,6 +1188,30 @@ namespace ExamenBadge {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetIdGroupeNull() {
                 this[this.tableStagiaire.IdGroupeColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsdateNaissanceNull() {
+                return this.IsNull(this.tableStagiaire.dateNaissanceColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetdateNaissanceNull() {
+                this[this.tableStagiaire.dateNaissanceColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsCinNull() {
+                return this.IsNull(this.tableStagiaire.CinColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetCinNull() {
+                this[this.tableStagiaire.CinColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -1654,10 +1739,12 @@ namespace ExamenBadge.BadgeDataSetTableAdapters {
             tableMapping.ColumnMappings.Add("PrenomStagiaire", "PrenomStagiaire");
             tableMapping.ColumnMappings.Add("Photo", "Photo");
             tableMapping.ColumnMappings.Add("IdGroupe", "IdGroupe");
+            tableMapping.ColumnMappings.Add("dateNaissance", "dateNaissance");
+            tableMapping.ColumnMappings.Add("Cin", "Cin");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[Stagiaire] WHERE (([IdStagiaire] = @Original_IdStagiaire) AND ((@IsNull_NomStagiaire = 1 AND [NomStagiaire] IS NULL) OR ([NomStagiaire] = @Original_NomStagiaire)) AND ((@IsNull_PrenomStagiaire = 1 AND [PrenomStagiaire] IS NULL) OR ([PrenomStagiaire] = @Original_PrenomStagiaire)) AND ((@IsNull_Photo = 1 AND [Photo] IS NULL) OR ([Photo] = @Original_Photo)) AND ((@IsNull_IdGroupe = 1 AND [IdGroupe] IS NULL) OR ([IdGroupe] = @Original_IdGroupe)))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [Stagiaire] WHERE (([IdStagiaire] = @Original_IdStagiaire) AND ((@IsNull_NomStagiaire = 1 AND [NomStagiaire] IS NULL) OR ([NomStagiaire] = @Original_NomStagiaire)) AND ((@IsNull_PrenomStagiaire = 1 AND [PrenomStagiaire] IS NULL) OR ([PrenomStagiaire] = @Original_PrenomStagiaire)) AND ((@IsNull_Photo = 1 AND [Photo] IS NULL) OR ([Photo] = @Original_Photo)) AND ((@IsNull_IdGroupe = 1 AND [IdGroupe] IS NULL) OR ([IdGroupe] = @Original_IdGroupe)) AND ((@IsNull_Cin = 1 AND [Cin] IS NULL) OR ([Cin] = @Original_Cin)) AND ((@IsNull_dateNaissance = 1 AND [dateNaissance] IS NULL) OR ([dateNaissance] = @Original_dateNaissance)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_IdStagiaire", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "IdStagiaire", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_NomStagiaire", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NomStagiaire", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
@@ -1668,24 +1755,32 @@ namespace ExamenBadge.BadgeDataSetTableAdapters {
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Photo", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Photo", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_IdGroupe", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "IdGroupe", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_IdGroupe", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "IdGroupe", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Cin", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Cin", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Cin", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Cin", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_dateNaissance", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "dateNaissance", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_dateNaissance", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "dateNaissance", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[Stagiaire] ([NomStagiaire], [PrenomStagiaire], [Photo], [IdGroupe]) VALUES (@NomStagiaire, @PrenomStagiaire, @Photo, @IdGroupe);
-SELECT IdStagiaire, NomStagiaire, PrenomStagiaire, Photo, IdGroupe FROM Stagiaire WHERE (IdStagiaire = SCOPE_IDENTITY())";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [Stagiaire] ([NomStagiaire], [PrenomStagiaire], [Photo], [IdGroupe], [Cin], [dateNaissance]) VALUES (@NomStagiaire, @PrenomStagiaire, @Photo, @IdGroupe, @Cin, @dateNaissance);
+SELECT IdStagiaire, NomStagiaire, PrenomStagiaire, Photo, IdGroupe, Cin, dateNaissance FROM Stagiaire WHERE (IdStagiaire = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@NomStagiaire", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NomStagiaire", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PrenomStagiaire", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PrenomStagiaire", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Photo", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Photo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IdGroupe", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "IdGroupe", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Cin", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Cin", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@dateNaissance", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "dateNaissance", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Stagiaire] SET [NomStagiaire] = @NomStagiaire, [PrenomStagiaire] = @PrenomStagiaire, [Photo] = @Photo, [IdGroupe] = @IdGroupe WHERE (([IdStagiaire] = @Original_IdStagiaire) AND ((@IsNull_NomStagiaire = 1 AND [NomStagiaire] IS NULL) OR ([NomStagiaire] = @Original_NomStagiaire)) AND ((@IsNull_PrenomStagiaire = 1 AND [PrenomStagiaire] IS NULL) OR ([PrenomStagiaire] = @Original_PrenomStagiaire)) AND ((@IsNull_Photo = 1 AND [Photo] IS NULL) OR ([Photo] = @Original_Photo)) AND ((@IsNull_IdGroupe = 1 AND [IdGroupe] IS NULL) OR ([IdGroupe] = @Original_IdGroupe)));
-SELECT IdStagiaire, NomStagiaire, PrenomStagiaire, Photo, IdGroupe FROM Stagiaire WHERE (IdStagiaire = @IdStagiaire)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [Stagiaire] SET [NomStagiaire] = @NomStagiaire, [PrenomStagiaire] = @PrenomStagiaire, [Photo] = @Photo, [IdGroupe] = @IdGroupe, [Cin] = @Cin, [dateNaissance] = @dateNaissance WHERE (([IdStagiaire] = @Original_IdStagiaire) AND ((@IsNull_NomStagiaire = 1 AND [NomStagiaire] IS NULL) OR ([NomStagiaire] = @Original_NomStagiaire)) AND ((@IsNull_PrenomStagiaire = 1 AND [PrenomStagiaire] IS NULL) OR ([PrenomStagiaire] = @Original_PrenomStagiaire)) AND ((@IsNull_Photo = 1 AND [Photo] IS NULL) OR ([Photo] = @Original_Photo)) AND ((@IsNull_IdGroupe = 1 AND [IdGroupe] IS NULL) OR ([IdGroupe] = @Original_IdGroupe)) AND ((@IsNull_Cin = 1 AND [Cin] IS NULL) OR ([Cin] = @Original_Cin)) AND ((@IsNull_dateNaissance = 1 AND [dateNaissance] IS NULL) OR ([dateNaissance] = @Original_dateNaissance)));
+SELECT IdStagiaire, NomStagiaire, PrenomStagiaire, Photo, IdGroupe, Cin, dateNaissance FROM Stagiaire WHERE (IdStagiaire = @IdStagiaire)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@NomStagiaire", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NomStagiaire", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PrenomStagiaire", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PrenomStagiaire", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Photo", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Photo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IdGroupe", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "IdGroupe", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Cin", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Cin", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@dateNaissance", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "dateNaissance", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_IdStagiaire", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "IdStagiaire", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_NomStagiaire", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NomStagiaire", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_NomStagiaire", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NomStagiaire", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -1695,6 +1790,10 @@ SELECT IdStagiaire, NomStagiaire, PrenomStagiaire, Photo, IdGroupe FROM Stagiair
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Photo", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Photo", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_IdGroupe", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "IdGroupe", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_IdGroupe", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "IdGroupe", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Cin", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Cin", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Cin", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Cin", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_dateNaissance", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "dateNaissance", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_dateNaissance", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "dateNaissance", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IdStagiaire", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "IdStagiaire", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
@@ -1711,8 +1810,8 @@ SELECT IdStagiaire, NomStagiaire, PrenomStagiaire, Photo, IdGroupe FROM Stagiair
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT IdStagiaire, NomStagiaire, PrenomStagiaire, Photo, IdGroupe FROM dbo.Stagi" +
-                "aire";
+            this._commandCollection[0].CommandText = "SELECT IdStagiaire, NomStagiaire, PrenomStagiaire, Photo, IdGroupe, Cin, dateNais" +
+                "sance FROM Stagiaire";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -1773,7 +1872,7 @@ SELECT IdStagiaire, NomStagiaire, PrenomStagiaire, Photo, IdGroupe FROM Stagiair
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_IdStagiaire, string Original_NomStagiaire, string Original_PrenomStagiaire, string Original_Photo, global::System.Nullable<int> Original_IdGroupe) {
+        public virtual int Delete(int Original_IdStagiaire, string Original_NomStagiaire, string Original_PrenomStagiaire, string Original_Photo, global::System.Nullable<int> Original_IdGroupe, string Original_Cin, global::System.Nullable<global::System.DateTime> Original_dateNaissance) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_IdStagiaire));
             if ((Original_NomStagiaire == null)) {
                 this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(1));
@@ -1807,6 +1906,22 @@ SELECT IdStagiaire, NomStagiaire, PrenomStagiaire, Photo, IdGroupe FROM Stagiair
                 this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[8].Value = global::System.DBNull.Value;
             }
+            if ((Original_Cin == null)) {
+                this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[10].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[10].Value = ((string)(Original_Cin));
+            }
+            if ((Original_dateNaissance.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[11].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[12].Value = ((System.DateTime)(Original_dateNaissance.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[11].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[12].Value = global::System.DBNull.Value;
+            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -1827,7 +1942,7 @@ SELECT IdStagiaire, NomStagiaire, PrenomStagiaire, Photo, IdGroupe FROM Stagiair
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string NomStagiaire, string PrenomStagiaire, string Photo, global::System.Nullable<int> IdGroupe) {
+        public virtual int Insert(string NomStagiaire, string PrenomStagiaire, string Photo, global::System.Nullable<int> IdGroupe, string Cin, global::System.Nullable<global::System.DateTime> dateNaissance) {
             if ((NomStagiaire == null)) {
                 this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
@@ -1852,6 +1967,18 @@ SELECT IdStagiaire, NomStagiaire, PrenomStagiaire, Photo, IdGroupe FROM Stagiair
             else {
                 this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
+            if ((Cin == null)) {
+                this.Adapter.InsertCommand.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[4].Value = ((string)(Cin));
+            }
+            if ((dateNaissance.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[5].Value = ((System.DateTime)(dateNaissance.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[5].Value = global::System.DBNull.Value;
+            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -1872,7 +1999,7 @@ SELECT IdStagiaire, NomStagiaire, PrenomStagiaire, Photo, IdGroupe FROM Stagiair
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string NomStagiaire, string PrenomStagiaire, string Photo, global::System.Nullable<int> IdGroupe, int Original_IdStagiaire, string Original_NomStagiaire, string Original_PrenomStagiaire, string Original_Photo, global::System.Nullable<int> Original_IdGroupe, int IdStagiaire) {
+        public virtual int Update(string NomStagiaire, string PrenomStagiaire, string Photo, global::System.Nullable<int> IdGroupe, string Cin, global::System.Nullable<global::System.DateTime> dateNaissance, int Original_IdStagiaire, string Original_NomStagiaire, string Original_PrenomStagiaire, string Original_Photo, global::System.Nullable<int> Original_IdGroupe, string Original_Cin, global::System.Nullable<global::System.DateTime> Original_dateNaissance, int IdStagiaire) {
             if ((NomStagiaire == null)) {
                 this.Adapter.UpdateCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
@@ -1897,40 +2024,68 @@ SELECT IdStagiaire, NomStagiaire, PrenomStagiaire, Photo, IdGroupe FROM Stagiair
             else {
                 this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
-            this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(Original_IdStagiaire));
-            if ((Original_NomStagiaire == null)) {
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[6].Value = global::System.DBNull.Value;
+            if ((Cin == null)) {
+                this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(Original_NomStagiaire));
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(Cin));
             }
-            if ((Original_PrenomStagiaire == null)) {
+            if ((dateNaissance.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((System.DateTime)(dateNaissance.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[5].Value = global::System.DBNull.Value;
+            }
+            this.Adapter.UpdateCommand.Parameters[6].Value = ((int)(Original_IdStagiaire));
+            if ((Original_NomStagiaire == null)) {
                 this.Adapter.UpdateCommand.Parameters[7].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[8].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[7].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((string)(Original_PrenomStagiaire));
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((string)(Original_NomStagiaire));
             }
-            if ((Original_Photo == null)) {
+            if ((Original_PrenomStagiaire == null)) {
                 this.Adapter.UpdateCommand.Parameters[9].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[10].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[9].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((string)(Original_Photo));
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((string)(Original_PrenomStagiaire));
             }
-            if ((Original_IdGroupe.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((int)(Original_IdGroupe.Value));
-            }
-            else {
+            if ((Original_Photo == null)) {
                 this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[12].Value = global::System.DBNull.Value;
             }
-            this.Adapter.UpdateCommand.Parameters[13].Value = ((int)(IdStagiaire));
+            else {
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((string)(Original_Photo));
+            }
+            if ((Original_IdGroupe.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[14].Value = ((int)(Original_IdGroupe.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[14].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Cin == null)) {
+                this.Adapter.UpdateCommand.Parameters[15].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[16].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[15].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[16].Value = ((string)(Original_Cin));
+            }
+            if ((Original_dateNaissance.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[17].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[18].Value = ((System.DateTime)(Original_dateNaissance.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[17].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[18].Value = global::System.DBNull.Value;
+            }
+            this.Adapter.UpdateCommand.Parameters[19].Value = ((int)(IdStagiaire));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -1951,8 +2106,8 @@ SELECT IdStagiaire, NomStagiaire, PrenomStagiaire, Photo, IdGroupe FROM Stagiair
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string NomStagiaire, string PrenomStagiaire, string Photo, global::System.Nullable<int> IdGroupe, int Original_IdStagiaire, string Original_NomStagiaire, string Original_PrenomStagiaire, string Original_Photo, global::System.Nullable<int> Original_IdGroupe) {
-            return this.Update(NomStagiaire, PrenomStagiaire, Photo, IdGroupe, Original_IdStagiaire, Original_NomStagiaire, Original_PrenomStagiaire, Original_Photo, Original_IdGroupe, Original_IdStagiaire);
+        public virtual int Update(string NomStagiaire, string PrenomStagiaire, string Photo, global::System.Nullable<int> IdGroupe, string Cin, global::System.Nullable<global::System.DateTime> dateNaissance, int Original_IdStagiaire, string Original_NomStagiaire, string Original_PrenomStagiaire, string Original_Photo, global::System.Nullable<int> Original_IdGroupe, string Original_Cin, global::System.Nullable<global::System.DateTime> Original_dateNaissance) {
+            return this.Update(NomStagiaire, PrenomStagiaire, Photo, IdGroupe, Cin, dateNaissance, Original_IdStagiaire, Original_NomStagiaire, Original_PrenomStagiaire, Original_Photo, Original_IdGroupe, Original_Cin, Original_dateNaissance, Original_IdStagiaire);
         }
     }
     

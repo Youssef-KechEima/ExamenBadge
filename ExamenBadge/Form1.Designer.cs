@@ -62,6 +62,7 @@
             this.btnInvocation.TabIndex = 0;
             this.btnInvocation.Text = "ImprimerInvocation";
             this.btnInvocation.UseVisualStyleBackColor = true;
+            this.btnInvocation.Click += new System.EventHandler(this.btnInvocation_Click);
             // 
             // btnList
             // 

@@ -43,5 +43,15 @@ namespace ExamenBadge
             Imprimer i = new Imprimer(cb, filter);
             i.ShowDialog();
         }
+
+        private void btnInvocation_Click(object sender, EventArgs e)
+        {
+            CrystalConvocation cc = new CrystalConvocation();
+            cc.SetDataSource(badgeDataSet);
+           cc.SetParameterValue("ch2", Application.StartupPath);
+            string filter = "{Groupe.IdGroupe} = " + (groupeComboBox.SelectedIndex + 1);
+            Imprimer i = new Imprimer(cc, filter);
+            i.ShowDialog();
+        }
     }
 }
