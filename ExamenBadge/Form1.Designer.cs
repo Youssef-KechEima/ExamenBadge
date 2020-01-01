@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btnBadge = new System.Windows.Forms.Button();
+            this.btnInvocation = new System.Windows.Forms.Button();
+            this.btnList = new System.Windows.Forms.Button();
             this.badgeDataSet = new ExamenBadge.BadgeDataSet();
             this.groupeBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.groupeTableAdapter = new ExamenBadge.BadgeDataSetTableAdapters.GroupeTableAdapter();
@@ -44,33 +44,33 @@
             ((System.ComponentModel.ISupportInitialize)(this.stagiaireBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
-            // button1
+            // btnBadge
             // 
-            this.button1.Location = new System.Drawing.Point(112, 166);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(266, 44);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnBadge.Location = new System.Drawing.Point(112, 166);
+            this.btnBadge.Name = "btnBadge";
+            this.btnBadge.Size = new System.Drawing.Size(266, 44);
+            this.btnBadge.TabIndex = 0;
+            this.btnBadge.Text = "ImprimerBadge";
+            this.btnBadge.UseVisualStyleBackColor = true;
+            this.btnBadge.Click += new System.EventHandler(this.button1_Click);
             // 
-            // button2
+            // btnInvocation
             // 
-            this.button2.Location = new System.Drawing.Point(112, 216);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(266, 44);
-            this.button2.TabIndex = 0;
-            this.button2.Text = "button1";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnInvocation.Location = new System.Drawing.Point(112, 216);
+            this.btnInvocation.Name = "btnInvocation";
+            this.btnInvocation.Size = new System.Drawing.Size(266, 44);
+            this.btnInvocation.TabIndex = 0;
+            this.btnInvocation.Text = "ImprimerInvocation";
+            this.btnInvocation.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // btnList
             // 
-            this.button3.Location = new System.Drawing.Point(112, 266);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(266, 44);
-            this.button3.TabIndex = 0;
-            this.button3.Text = "button1";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnList.Location = new System.Drawing.Point(112, 266);
+            this.btnList.Name = "btnList";
+            this.btnList.Size = new System.Drawing.Size(266, 44);
+            this.btnList.TabIndex = 0;
+            this.btnList.Text = "ImprimerListe";
+            this.btnList.UseVisualStyleBackColor = true;
             // 
             // badgeDataSet
             // 
@@ -119,9 +119,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(525, 393);
             this.Controls.Add(this.groupeComboBox);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnList);
+            this.Controls.Add(this.btnInvocation);
+            this.Controls.Add(this.btnBadge);
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -134,9 +134,9 @@
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnBadge;
+        private System.Windows.Forms.Button btnInvocation;
+        private System.Windows.Forms.Button btnList;
         private BadgeDataSet badgeDataSet;
         private System.Windows.Forms.BindingSource groupeBindingSource;
         private BadgeDataSetTableAdapters.GroupeTableAdapter groupeTableAdapter;
