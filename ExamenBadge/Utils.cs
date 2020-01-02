@@ -21,7 +21,7 @@ namespace ExamenBadge
             {
                 date = date.AddDays(-1);
             }
-            return "Semaine du ..."+date.ToString("d")+"...au.."+date.AddDays(5).ToString("d");
+            return date.ToString("d")+"...au.."+date.AddDays(5).ToString("d");
         }
         public static string getYears()
         {

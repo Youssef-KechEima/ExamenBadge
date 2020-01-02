@@ -60,7 +60,13 @@ namespace ExamenBadge
 
         private void btnList_Click(object sender, EventArgs e)
         {
-            
+            string semaine = Utils.getDaysOfWeek();
+            CrystalListe cl = new CrystalListe();
+            cl.SetDataSource(badgeDataSet);
+           cl.SetParameterValue("ch3", semaine);
+            string filter = "{Groupe.IdGroupe} = " + (groupeComboBox.SelectedIndex + 1);
+            Imprimer i = new Imprimer(cl, filter);
+            i.ShowDialog();
         }
     }
 }
